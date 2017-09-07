@@ -1,0 +1,34 @@
+This is an example of simple and more complex SmartContracts
+
+How to set up the environment
+
+* Install truffle:
+sudo npm install -g truffle
+
+* Install Test RPC:
+sudo npm install -g ethereumjs-testrpc
+
+* Start Test RPC:
+$ testrpc
+
+* Build the code with truffle:
+$ truffle compile
+
+* Apply the migrations, adding the contracts on the local Test RPC:
+$ truffle migrate
+
+* Test the contract HelloWorld:
+$ truffle console
+
+(truffle)> var hello
+(truffle)> HelloWorld.deployed().then(function(deployed){hello=deployed;});
+(truffle)> hello.SayHello.call()
+
+
+* Test the contract ScoreStore:
+$ truffle console
+
+(truffle)> var ss
+(truffle)> ScoreStore.deployed().then(function(deployed) { ss = deployed;});
+(truffle)> ss.AddPersonScore("Edu",10);
+(truffle)> ss.GetScore("Edu");
